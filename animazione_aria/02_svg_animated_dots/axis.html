@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+  <html>
+    <body>
+      <?xml version="1.0"?>
+    <svg id="svgFather" width="400" height="400" viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" style="background:aquamarine">
+        <style>
+        path {
+          animation-name:animateDash;
+          animation-duration:5s;
+          animation-iteration-count:once;
+          animation-fill-mode:forwards;
+        }
+        @keyframes animateDash {
+          from{stroke-dasharray:0,2305}
+          to  {stroke-dasharray:2305,0}
+        }
+        </style>
+
+          <path id="verticalMotionPath" d="m 100,100 0, 50" stroke-width="5px" stroke="none" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+        <g style="transform-origin:50%;transform: rotate(180deg);">
+          <circle cx="0" cy="0" r="5" fill="#333333">
+          <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                         calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+            <mpath xlink:href="#verticalMotionPath"/>
+          </animateMotion>
+        </circle>
+        </g>
+
+        <g style="transform-origin:50%;transform: rotate(0deg);">
+          <circle cx="0" cy="0" r="5" fill="#333333">
+          <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                         calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+            <mpath xlink:href="#verticalMotionPath"/>
+          </animateMotion>
+        </circle>
+        </g>
+
+        <g style="transform-origin:50%;transform: rotate(60deg);">
+          <circle cx="0" cy="0" r="5" fill="#333333">
+          <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                         calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+              <mpath xlink:href="#verticalMotionPath"/>
+            </animateMotion>
+          </circle>
+        </g>
+
+        <g style="transform-origin:50%;transform: rotate(-60deg);">
+          <circle cx="0" cy="0" r="5" fill="#333333">
+          <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                         calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+              <mpath xlink:href="#verticalMotionPath"/>
+            </animateMotion>
+          </circle>
+        </g>
+
+        <path id="shorterPath" d="m 100,70 0, 50" stroke="none" fill="none"/>
+
+        <g style="transform-origin:61%;transform: rotate(180deg);">
+          <circle cx="0" cy="0" r="5" fill="#333333">
+            <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                         calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+              <mpath xlink:href="#shorterPath"/>
+            </animateMotion>
+          </circle>
+        </g>
+
+        <g style="transform-origin:39%;transform: rotate(180deg);" id="padrePippo">
+          <circle id="pippo" cx="0" cy="0" r="5" fill="#333333">
+            <animateMotion dur="0.7s" repeatCount="once" fill="freeze"
+                           calcMode="spline" keyTimes="0;1" keySplines="0.27 0 0 1">
+                <mpath xlink:href="#shorterPath"/>
+              </animateMotion>
+          </circle>
+        </g>
+
+    </svg>
+    <script>
+      var diameter = 5;
+      setInterval(function(){svgFather.getElementsByTagName("g")[getRandomInt(6)].getElementsByTagName("circle")[0].setAttribute("r", diameter)},2000);
+      setInterval(function(){console.log(diameter++)}, 3000);
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+</script>
+  </body>
+</html>

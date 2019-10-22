@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <style>
+  #triangular-shape{
+    color:white;
+    content: "triangle";
+    border-left: 20em solid #333333;
+    border-top: 100vh solid aquamarine;
+  }
+
+  #testo{
+    white-space:pre;
+    line-height:2em;
+    font-family:sans-serif;
+    font-size:0.9em;
+    padding-top:16em;
+/*    animation: fade 1s ease-out 3s once normal forwards; */
+    animation-name: fading;
+    animation-duration:0.2s;
+    animation-timing-function: ease-in;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+
+  #titolo{
+      animation: translating;
+      animation-duration:0.2s;
+      animation-timing-function: ease-in;
+      animation-delay: 0.6s;
+      animation-fill-mode: forwards;
+
+      animation-name: fading;
+      animation-duration:0.2s;
+      animation-timing-function: ease-in;
+      animation-delay: 0.35s;
+      animation-fill-mode: forwards;
+  }
+
+  #shapes-wrapper{
+    display:flex;
+    animation-name: moving;
+    animation-duration:0.3s;
+    animation-timing-function: easeInOutQuart;
+    animation-delay: 0.45s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fading {
+      from {opacity: 1;}
+      to {opacity: 0;}
+  }
+
+  @keyframes moving {
+      from {margin-left: 0em;}
+      to {margin-left: -40em;}
+  }
+
+  @keyframes translating {
+      from {bottom: 0em;right:0em;}
+      to {bottom:-2em;right:-3em;}
+  }
+
+  </style>
+</head>
+
+<body style="width:100%;height:100%;background:aquamarine;padding: 0;margin: 0;">
+    <div id="shapes-wrapper" style="">
+      <div id="rectangular-shape" style="width:50em;height:100vh; background:#333">
+        <div style="color:white;max-width:30em;padding:0 5em;position:relative;">
+          <h2 id="titolo" style="position:absolute;font-family:sans-serif;font-size:4em;font-weight:lighter;margin-left:1em">BIM</h2>
+          <p id="testo" style="white-space:pre;line-height:2em; font-family:sans-serif;font-size:0.9em;padding-top:16em">
+            Anche questa sera la luna è sorta affogata in un alone troppo rosso e vago
+            Vespero non si vede, si è offuscata la punta dello stilo si è spezzata
+            che oroscopo puoi trarre questa sera, mago! lo, Filemazio, protomedico,
+            matematico. astronomo (forse saggio) ridotto come un cieco a brancicare
+            attorno, non ho la conoscenza (od il coraggio) per fare questo oroscopo,
+            per divinar responso e resto qui a aspettare che ritorni giorno. E devo dire
+            (devo dire) che sono forse troppo vecchio per capire che ho perso la mia mente
+            in chissà quale abuso od ozio o stan mutando gli astri nelle notti d'equinozio
+            o forse io (forse io) ho sottovalutato questo nuovo dio lo leggo in me e
+            nei segni che qualcosa sta cambiando ma è un debole presagio che non dice
+            come e quando. Me ne andavo l'altra sera quasi inconsciamente giù al
+            porto Bosforeion là dove si perde la terra dentro al mare fino quasi al
+            niente poi ritorna terra, e non è più occidente; che importa a questo mare
+            essere "azzurro" o "verde"?! [...] Fortuna e età
+            han deciso per un giorno non lontano o il Fato chiederebbe che scegliesse la
+            mia mano. Ma Bisanzio è forse solo un simbolo insondabile. segreto e
+            ambiguo come questa vita, Bisanzio è un mito che non mi è consueto.
+            Bisanzio è un sogno che si fa incompleto. Bisanzio forse non è mai
+            esistita; e ancora ignoro, e un'altra notte è andata, Lucifero è già sorta e si alza
+            un Pa di vento c'è freddo sulla torre, o è l'età mia malata confondo vita e
+            morte. e non so chi è passata mi copro col mantello il capo e più non sento e mi
+            addormento.</p>
+        </div>
+      </div>
+      <div id="triangular-shape" style="width:100%;background:white"></div>
+    </div>
+  <input type="checkbox" style="margin: auto;top: 0; right: 0; width: 2em; height: 2em; background: red; z-index: 5; position:absolute;display:inline;"><div style="margin: auto;top: 0; right: 0; width: 2em; height: 2em; background: red; z-index: 4; position:absolute;display:inline;"></div></input>
+    <div></div>
+    <div></div>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

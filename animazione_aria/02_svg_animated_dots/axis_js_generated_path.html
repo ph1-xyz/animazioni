@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+  <html>
+    <body>
+      <?xml version="1.0"?>
+      <script>"use strict";
+function createSvgElement( tagName, attributes) {
+    var element = document.createElementNS(
+        "http://www.w3.org/2000/svg", tagName);
+    if( attributes) {
+        for( var attr in attributes) {
+            if( /^xlink:/.test( attr)) {
+                element.setAttributeNS( "http://www.w3.org/1999/xlink",
+                    attr, attributes[ attr]);
+            }
+            else {
+                element.setAttribute( attr, attributes[ attr]);
+            }
+        }
+    }
+    return element;
+}
+
+let svg = createSvgElement("svg", {
+    width: "200",
+    height: "200",
+    viewBox: "0 0 200 200",
+    style: "background:aquamarine",
+
+});
+let defs = createSvgElement("defs");
+defs.appendChild(createSvgElement( "path", {
+    id: "verticalMotionPath",
+    d:	"m 100,100 0, 50"
+}));
+defs.appendChild( createSvgElement( "path", {
+    id: "shorterPath",
+    d: "m 100,70 0, 50"
+}));
+svg.appendChild( defs);
+
+function circleGroup( originTx, rotateDegrees, pathId, circleId) {
+    let group = createSvgElement("g");
+    group.style =
+      "transform-origin: "+originTx
+       +"; transform: rotate("+ rotateDegrees + "deg);";
+    let circle = createSvgElement("circle", { r: 5, fill: "#333333"});
+    let am = createSvgElement("animateMotion", {
+        dur:"0.7s",
+        repeatCount: 1,
+        fill: "freeze",
+        calcMode: "spline",
+        keyTimes: "0;1",
+        keySplines: "0.27 0 0 1"
+    });
+    am.appendChild( createSvgElement("mpath", {
+        "href": "#" + pathId
+    }));
+    circle.appendChild( am);
+    group.appendChild(circle);
+    return group;
+}
+// draw animations and append svg to body
+[180, 0, 60, -60].forEach( function( angle) {
+    svg.appendChild( circleGroup("50%", angle, "verticalMotionPath"));
+});
+["61%", "39%"].forEach( function( originTx) {
+    svg.appendChild( circleGroup(originTx, 180, "shorterPath"));
+});
+document.body.appendChild( svg);</script>
+<!--    <script>
+      var diameter = 5;
+      setInterval(function(){svgFather.getElementsByTagName("g")[getRandomInt(6)].getElementsByTagName("circle")[0].setAttribute("r", diameter)},2000);
+      setInterval(function(){console.log(diameter++)}, 3000);
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+</script>-->
+  </body>
+</html>

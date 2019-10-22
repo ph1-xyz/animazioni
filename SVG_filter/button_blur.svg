@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body id="home">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="background: url('https://media.giphy.com/media/3o7TKz6eMNdooOHzG0/giphy.gif') center / cover transparent fixed;width:100px;height:100px;border-radius:100px" filter="url(#blurMe)">
+  <defs>
+    <filter id="blurMe">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+    </filter>
+  </defs>
+</svg>
+
+</body>
+</html>
